@@ -14,7 +14,19 @@ func (td *TodoList) AddTask(taskName string) {
 }
 
 func (td *TodoList) ViewTask() {
-	fmt.Println("Tasks are viewed...", td.tasks)
+	fmt.Println("========== TASKS ===========")
+
+	for _, task := range td.tasks {
+		doneStatus := " "
+
+		if task.Done {
+			doneStatus = "X"
+		}
+		fmt.Printf("[%s] Task #%d: %s\n", doneStatus, task.ID, task.Name)
+	}
+
+	fmt.Println("============================")
+
 }
 
 func (td *TodoList) MarkAsDone(taskId int) {
